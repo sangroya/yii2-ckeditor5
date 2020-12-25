@@ -1,0 +1,27 @@
+{
+    "name": "sangroya/yii2-ckeditor5",
+    "description": "CKEditor for Yii",
+    "type": "yii2-extension",
+    "keywords": ["yii2","extension"," ckeditor"," ckeditor5"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Parveen Sangroya",
+            "email": "parveen0013@gmail.com"
+        }
+    ],
+    "require": {
+        "yiisoft/yii2": "~2.0.0"
+        
+    },
+    "extra": {
+        "npm": {
+            "ckeditor/ckeditor": "^5.0"
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "sangroya\\ckeditor5\\": ""
+        }
+    }
+}
