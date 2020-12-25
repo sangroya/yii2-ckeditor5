@@ -15,13 +15,52 @@ use yii\widgets\InputWidget;
 class CKEditor extends InputWidget
 {
 
+    public $clientOptions = [
+        'language'=> 'au',
+        'toolbar' => [
+ 
+               'items' => [
+            'heading',
+            '|',
+            'bold',
+            'italic',
+            'link',
+            'bulletedList',
+            'numberedList',
+            '|',
+            'indent',
+            'outdent',
+            '|',
+            'imageUpload',
+            'blockQuote',
+            'insertTable',
+            'mediaEmbed',
+            'undo',
+            'redo',
+        //    'exportPdf',
+         //   'exportWord',
+            'fontSize',
+            'fontFamily',
+            'fontColor',
+            'fontBackgroundColor',
+            'highlight',
+            'imageInsert',
+            'alignment'
+
+           ],
+       
+            ]
+
+    ];
+    public $toolbar;
+    public $uploadUrl;
     /**
      * @inheritdoc
      */
     public function init()
     {
         parent::init();
-        $this->initOptions();
+       // $this->initOptions();
     }
 
     /**
@@ -34,7 +73,9 @@ class CKEditor extends InputWidget
         } else {
             echo Html::textarea($this->name, $this->value, $this->options);
         }
+        $this->registerAssets($this->getView());
         $this->registerPlugin();
+
     }
 
     /**
@@ -51,7 +92,7 @@ class CKEditor extends InputWidget
         $clientOptions = Json::encode($this->clientOptions);
 
         $js = new JsExpression(
-            $this->editorType . "Editor.create( document.querySelector( '#{$this->options['id']}' ), {$clientOptions} ).catch( error => {console.error( error );} );"
+             "ClassicEditor.create( document.querySelector( '#{$this->options['id']}' ), {$clientOptions} ).then( editor=>{console.log( editor );CKEditor['{$this->options['id']}']=editor;}).catch( error => {console.error( error );} );"
         );
         $this->view->registerJs($js);
     }

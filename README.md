@@ -1,6 +1,6 @@
 yii2-ckeditor5
 ==============
-CKEditor for Yii
+CKEditor for Yii with static build (https://docs.ckeditor.com/ckeditor5/latest/builds/)
 
 Installation
 ------------
