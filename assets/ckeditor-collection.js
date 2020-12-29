@@ -1,1 +1,1 @@
-let CKEditor=[];
+let CKEditor= new Map();
