@@ -92,9 +92,24 @@ class CKEditor extends InputWidget
         $clientOptions = Json::encode($this->clientOptions);
 
         $js = new JsExpression(
-             "ClassicEditor.create( document.querySelector( '#{$this->options['id']}' ), {$clientOptions} ).then( editor=>{console.log( editor );CKEditor['{$this->options['id']}']=editor;}).catch( error => {console.error( error );} );"
+             "ClassicEditor.create( document.querySelector( '#{$this->options['id']}' ), {$clientOptions} ).then( editor=>{console.log( editor );
+                editor.setData( '<p>This is editor!</p>' );
+                CKEditor.set('{$this->options['id']}',editor);
+            console.log(CKEditor);
+            }).catch( error => {console.error( error );} );"
+
         );
+        $replacejs = new JsExpression(
+            
+            "CKEditor.replace=(element)=>{
+                ClassicEditor.create( document.querySelector( '#'+element ), {$clientOptions} ).then( editor=>{
+               CKEditor.set(element,editor);
+           
+           }).catch( error => {console.error( error );} );}"
+
+       );
         $this->view->registerJs($js);
+        $this->view->registerJs($replacejs);
     }
 
     protected function registerAssets($view)
