@@ -93,9 +93,9 @@ class CKEditor extends InputWidget
 
         $js = new JsExpression(
              "ClassicEditor.create( document.querySelector( '#{$this->options['id']}' ), {$clientOptions} ).then( editor=>{console.log( editor );
-                editor.setData( '<p>This is editor!</p>' );
+      
                 CKEditor.set('{$this->options['id']}',editor);
-            console.log(CKEditor);
+           
             }).catch( error => {console.error( error );} );"
 
         );
