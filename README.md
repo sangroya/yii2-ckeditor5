@@ -35,3 +35,15 @@ use sangroya\ckeditor5\CKEditor;
         'options' => ['rows' => 6],
        
     ]) ?>```
+    
+Upload Url
+-----
+
+```php
+use sangroya\ckeditor5\CKEditor;
+
+
+<?= $form->field($model, 'text')->widget(CKEditor::className(), [
+        'options' => ['rows' => 6],
+       'uploadUrl' => 'site/upload', //this will be the url where you want to ckeditor send the post request with file data
+    ]) ?>```
