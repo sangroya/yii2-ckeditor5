@@ -16,43 +16,40 @@ class CKEditor extends InputWidget
 {
 
     public $clientOptions = [
-        'language'=> 'au',
-        'toolbar' => [
- 
-               'items' => [
-            'heading',
-            '|',
-            'bold',
-            'italic',
-            'link',
-            'bulletedList',
-            'numberedList',
-            '|',
-            'indent',
-            'outdent',
-            '|',
-            'imageUpload',
-            'blockQuote',
-            'insertTable',
-            'mediaEmbed',
-            'undo',
-            'redo',
-        //    'exportPdf',
-         //   'exportWord',
-            'fontSize',
-            'fontFamily',
-            'fontColor',
-            'fontBackgroundColor',
-            'highlight',
-            'imageInsert',
-            'alignment'
-
-           ],
-       
-            ]
+        'language'=> 'au'
 
     ];
-    public $toolbar;
+    public $toolbar=  [
+ 
+        'items' => [
+     'heading',
+     '|',
+     'bold',
+     'italic',
+     'link',
+     'bulletedList',
+     'numberedList',
+     '|',
+     'indent',
+     'outdent',
+     '|',
+     'imageUpload',
+     'blockQuote',
+     'insertTable',
+     'mediaEmbed',
+     'undo',
+     'redo',
+ //    'exportPdf',
+  //   'exportWord',
+     'fontSize',
+     'fontFamily',
+     'fontColor',
+     'fontBackgroundColor',
+     'highlight',
+     'imageInsert',
+     'alignment'
+
+    ]];
     public $uploadUrl;
     /**
      * @inheritdoc
