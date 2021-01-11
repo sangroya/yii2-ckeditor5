@@ -20,36 +20,35 @@ class CKEditor extends InputWidget
 
     ];
     public $toolbar=  [
- 
         'items' => [
-     'heading',
-     '|',
-     'bold',
-     'italic',
-     'link',
-     'bulletedList',
-     'numberedList',
-     '|',
-     'indent',
-     'outdent',
-     '|',
-     'imageUpload',
-     'blockQuote',
-     'insertTable',
-     'mediaEmbed',
-     'undo',
-     'redo',
- //    'exportPdf',
-  //   'exportWord',
-     'fontSize',
-     'fontFamily',
-     'fontColor',
-     'fontBackgroundColor',
-     'highlight',
-     'imageInsert',
-     'alignment'
+                 'heading',
+                 '|',
+                 'bold',
+                 'italic',
+                 'link',
+                 'bulletedList',
+                 'numberedList',
+                 '|',
+                 'indent',
+                 'outdent',
+                 '|',
+                 'imageUpload',
+                 'blockQuote',
+                 'insertTable',
+                 'mediaEmbed',
+                 'undo',
+                 'redo',
+             //    'exportPdf',
+              //   'exportWord',
+                 'fontSize',
+                 'fontFamily',
+                 'fontColor',
+                 'fontBackgroundColor',
+                 'highlight',
+                 'imageInsert',
+                 'alignment'
 
-    ]];
+          ]];
     public $uploadUrl;
     /**
      * @inheritdoc
@@ -57,7 +56,6 @@ class CKEditor extends InputWidget
     public function init()
     {
         parent::init();
-       // $this->initOptions();
     }
 
     /**
