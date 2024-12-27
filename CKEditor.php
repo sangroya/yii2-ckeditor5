@@ -19,36 +19,68 @@ class CKEditor extends InputWidget
         'language'=> 'au'
 
     ];
-    public $toolbar=  [
-        'items' => [
-                 'heading',
-                 '|',
-                 'bold',
-                 'italic',
-                 'link',
-                 'bulletedList',
-                 'numberedList',
-                 '|',
-                 'indent',
-                 'outdent',
-                 '|',
-                 'imageUpload',
-                 'blockQuote',
-                 'insertTable',
-                 'mediaEmbed',
-                 'undo',
-                 'redo',
-             //    'exportPdf',
-              //   'exportWord',
-                 'fontSize',
-                 'fontFamily',
-                 'fontColor',
-                 'fontBackgroundColor',
-                 'highlight',
-                 'imageInsert',
-                 'alignment'
 
-          ]];
+    public $preset='standard';
+
+    protected $toolbars=[
+        "standard"=>[
+            'heading',
+            '|',
+            'bold',
+            'italic',
+            'link',
+            'bulletedList',
+            'numberedList',
+            '|',
+            'indent',
+            'outdent',
+            '|',
+            'imageUpload',
+            'blockQuote',
+            'insertTable',
+            'mediaEmbed',
+            'undo',
+            'redo',
+        //    'exportPdf',
+         //   'exportWord',
+            'fontSize',
+            'fontFamily',
+            'fontColor',
+            'fontBackgroundColor',
+            'highlight',
+            'imageInsert',
+            'alignment'
+
+        ],
+        'basic'=>[
+            'heading',
+            '|',
+            'bold',
+            'italic',
+            'link',
+            'bulletedList',
+            'numberedList',
+            '|',
+            'indent',
+            'outdent',
+            '|',
+            'blockQuote',
+            'insertTable',
+            'mediaEmbed',
+            'undo',
+            'redo',
+            'fontSize',
+            'fontFamily',
+            'fontColor',
+            'fontBackgroundColor',
+            'highlight',
+            'alignment'
+
+     ]
+        ];
+    
+    public $toolbarKey='standard';
+    public $toolbar=  null;
     public $uploadUrl;
     /**
      * @inheritdoc
@@ -56,6 +88,11 @@ class CKEditor extends InputWidget
     public function init()
     {
         parent::init();
+        $this->toolbarKey=isset($this->toolbars[$this->preset])?$this->preset:'standard';
+        if($this->toolbar==null)
+         $this->toolbar=  [
+            'items' => $this->toolbars[$this->toolbarKey]
+        ];
     }
 
     /**
